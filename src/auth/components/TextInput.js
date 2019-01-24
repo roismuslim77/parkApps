@@ -5,11 +5,10 @@ class TextInput extends Component {
     render(){
         return(
             <View style={styles.iContainer}>
-            <Image style={styles.inputIcon} 
-                source={{uri: this.props.icon}}/>
                 <Input
                     style={styles.inputs}
                     placeholder={this.props.placeholder}
+                    placeholderTextColor= '#b5b8bc'
                     onChangeText={this.props.input.onChange}
                     value={this.props.input.value} />
             </View>
@@ -20,28 +19,22 @@ class TextInput extends Component {
 export default TextInput;
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#DCDCDC',
-    },
     iContainer: {
         borderBottomColor: '#F5FCFF',
-        backgroundColor: '#FFFFFF',
-        borderRadius:30,
+        backgroundColor: 'transparent',
         borderBottomWidth: 1,
         width:300,
         height:35,
         marginBottom:20,
         flexDirection: 'row',
-        alignItems:'center'
+        alignItems:'flex-end',
     },
     inputs:{
         height:35,
         marginLeft:16,
         borderBottomColor: '#FFFFFF',
         flex:1,
+        color: 'white',
     },
     inputIcon:{
       width:20,

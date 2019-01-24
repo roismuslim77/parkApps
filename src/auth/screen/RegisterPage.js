@@ -5,10 +5,14 @@ import {connect} from 'react-redux';
 import uuidv1 from 'uuid';
 import TextInput from '../components/TextInput';
 
+import {postuser} from '../../public/redux/actions/auth';
+import {get} from '../../public/redux/actions/test';
+
 class Register extends Component{
   
-  addTest = (value) => {
-    alert(JSON.stringify(value))
+  addUser = (value) => {
+    this.props.dispatch(postuser(value))
+    //alert(JSON.stringify(this.props.auth))
   }
   
   render(){
@@ -20,20 +24,35 @@ class Register extends Component{
         icon = 'https://png.icons8.com/message/ultraviolet/50/3498db'
         placeholder='Email' />
       <Field 
+        name='username'
+        component={TextInput}
+        icon = 'https://png.icons8.com/message/ultraviolet/50/3498db'
+        placeholder='Username' />
+      <Field 
         name='password'
         component={TextInput}
         icon = 'https://png.icons8.com/message/ultraviolet/50/3498db'
         placeholder='Password' />
-      <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={this.props.handleSubmit(this.addTest)}>
-        <Text style={styles.loginText}>Login</Text>
+      <Field 
+        name='repassword'
+        component={TextInput}
+        icon = 'https://png.icons8.com/message/ultraviolet/50/3498db'
+        placeholder='Re-Password' />
+      <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={this.props.handleSubmit(this.addUser)}>
+        <Text style={styles.loginText}>Register</Text>
       </TouchableOpacity>
       </View>
     )
   }
 }
+
+mapStateToProps=(state)=>{
+  return state
+}
+
 export default reduxForm({
     form: 'register'
-  })(connect()(Register));
+  })(connect(mapStateToProps)(Register));
 
   const styles = StyleSheet.create({
     loginButton: {
@@ -50,6 +69,5 @@ export default reduxForm({
       alignItems: 'center',
       marginBottom:20,
       width:300,
-      borderRadius:30,
     },
 })

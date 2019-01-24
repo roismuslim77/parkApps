@@ -2,10 +2,10 @@ import axios from 'axios';
 
 const IP ='http://192.168.0.13:3333/'
 
-export const get = () => {
+export const get = (data) => {
   return {
     type: 'GET_TEST',
-    payload: axios.get(IP+'tests')
+    payload: data
   }
 }
 

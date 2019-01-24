@@ -23,7 +23,7 @@ class Add extends Component {
   }
     
   addTest = (value) => {
-    if ((value.email==='admin')&&(value.password==='admin123')){
+    if ((value.email===this.props.auth.user.email)&&(value.password===this.props.auth.user.password)){
         this.props.navigation.navigate('HomeRoot')
     }else{
         alert('email/password salah')
@@ -66,27 +66,8 @@ class Add extends Component {
     
     return(
       <View style={styles.container}>
-       
-        {/* <View>
-        <Image style={{height: 30, width: 130, marginBottom: '12%'}} 
-          source={{uri: 'https://fontmeme.com/permalink/190109/e013f808a451c866d11547d441ff8aa1.png'}}/>
-        </View>
-        <Field 
-          name='email'
-          component={TextInput}
-          icon = 'https://png.icons8.com/message/ultraviolet/50/3498db'
-          placeholder='Email' />
-        <Field 
-          name='password'
-          component={TextInput}
-          icon = 'https://png.icons8.com/message/ultraviolet/50/3498db'
-          placeholder='Password' />
-        <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={this.props.handleSubmit(this.addTest)}>
-          <Text style={styles.loginText}>Login</Text>
-        </TouchableOpacity> */}
-
         <View style={{ height: '10%', alignItems: 'center', flex: 1, justifyContent: 'flex-end'}}>
-        <Image style={{height: 30, width: 130, paddingTop: 0}} 
+        <Image style={{height: 40, width: 150, paddingTop: 0}} 
           source={{uri: 'https://fontmeme.com/permalink/190109/e013f808a451c866d11547d441ff8aa1.png'}}/>
         </View>
         <View style={{width: '100%', flex: 5, justifyContent: 'flex-start', position: 'relative', alignItems: 'center'}}>
@@ -98,6 +79,7 @@ class Add extends Component {
         </Segment>
         <Content style={styles.contenStyle}>
           {shows}
+          <Text>{this.props.auth.user.username}</Text>
          </Content>
         </View>
       </View>
@@ -120,19 +102,21 @@ class Add extends Component {
     secondpageactive:true})
     }
 }
-
+mapStateToProps=(state)=>{
+  return state
+}
 
 export default reduxForm({
   form: 'login'
-})(connect()(Add));
+})(connect(mapStateToProps)(Add));
 
 const styles = StyleSheet.create({
     contenStyle:{
-        marginTop: '-30%',
+        marginTop: '-35%',
     },
     buttonSegment1: {
         flex:1, 
-        marginLeft: '5%', 
+        marginLeft: '11%', 
         borderColor: 'transparent',
         justifyContent: 'center',
         alignItems: 'center',
@@ -140,7 +124,7 @@ const styles = StyleSheet.create({
     },
     buttonSegment2:{
         flex:1, 
-        marginRight: '5%', 
+        marginRight: '11%', 
         borderColor: 'transparent',
         justifyContent: 'center',
         alignItems: 'center',
@@ -166,6 +150,5 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       marginBottom:20,
       width:300,
-      borderRadius:30,
     },
 })
