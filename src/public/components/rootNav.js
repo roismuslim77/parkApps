@@ -45,17 +45,17 @@ const BottomTab = createMaterialBottomTabNavigator({
     shifting: true,
     barStyle: {
         backgroundColor: 'white',
-        height: '8.5%',
         borderTopColor: 'blue',
         borderTopWidth: 0.8,
-    }
+    },
+    initialRouteName: 'Account'
 });
 
 const RootNavigator = createStackNavigator({
     HomeRoot: BottomTab,
     Auth : { screen: authScreen}
 },{
-    initialRouteName: 'Auth',
+    initialRouteName: 'HomeRoot',
     headerMode: 'none'
 })
 
