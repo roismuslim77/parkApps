@@ -6,6 +6,7 @@ class TextInput extends Component {
         return(
             <View style={styles.iContainer}>
                 <Input
+                    secureTextEntry={this.props.secureText}
                     style={styles.inputs}
                     placeholder={this.props.placeholder}
                     placeholderTextColor= '#b5b8bc'

@@ -16,14 +16,6 @@ const BottomTab = createMaterialBottomTabNavigator({
               )
         })
     },
-    History: { 
-        screen: historyScreen, 
-        navigationOptions: ()=>({
-            tabBarIcon: ({ tintColor, focused }) => (
-                <Icon name='history' type='FontAwesome5' style={{ color: tintColor, fontSize: 20 }} />
-              )
-        })
-    },
     Reserve: { 
         screen: historyScreen, 
         navigationOptions: ()=>({
@@ -48,12 +40,13 @@ const BottomTab = createMaterialBottomTabNavigator({
         borderTopColor: 'blue',
         borderTopWidth: 0.8,
     },
-    initialRouteName: 'Account'
+    initialRouteName: 'Home'
 });
 
 const RootNavigator = createStackNavigator({
     HomeRoot: BottomTab,
-    Auth : { screen: authScreen}
+    Auth : { screen: authScreen},
+    History: { screen: historyScreen}
 },{
     initialRouteName: 'HomeRoot',
     headerMode: 'none'

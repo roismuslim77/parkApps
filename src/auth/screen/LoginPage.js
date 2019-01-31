@@ -23,6 +23,7 @@ class Add extends Component {
   }
     
   addTest = (value) => {
+    
     if ((value.email===this.props.auth.user.email)&&(value.password===this.props.auth.user.password)){
         this.props.navigation.navigate('HomeRoot')
     }else{
@@ -36,11 +37,13 @@ class Add extends Component {
       <Field 
         name='email'
         component={TextInput}
+        secureText={false}
         icon = 'https://png.icons8.com/message/ultraviolet/50/3498db'
         placeholder='Email' />
       <Field 
         name='password'
         component={TextInput}
+        secureText={true}
         icon = 'https://png.icons8.com/message/ultraviolet/50/3498db'
         placeholder='Password' />
       <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={this.props.handleSubmit(this.addTest)}>
@@ -79,7 +82,6 @@ class Add extends Component {
         </Segment>
         <Content style={styles.contenStyle}>
           {shows}
-          <Text>{this.props.auth.user.username}</Text>
          </Content>
         </View>
       </View>

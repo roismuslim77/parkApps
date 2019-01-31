@@ -21,21 +21,25 @@ class Register extends Component{
       <Field 
         name='email'
         component={TextInput}
+        secureText={false}
         icon = 'https://png.icons8.com/message/ultraviolet/50/3498db'
         placeholder='Email' />
       <Field 
         name='username'
         component={TextInput}
+        secureText={false}
         icon = 'https://png.icons8.com/message/ultraviolet/50/3498db'
         placeholder='Username' />
       <Field 
         name='password'
         component={TextInput}
+        secureText={true}
         icon = 'https://png.icons8.com/message/ultraviolet/50/3498db'
         placeholder='Password' />
       <Field 
         name='repassword'
         component={TextInput}
+        secureText={true}
         icon = 'https://png.icons8.com/message/ultraviolet/50/3498db'
         placeholder='Re-Password' />
       <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]} onPress={this.props.handleSubmit(this.addUser)}>

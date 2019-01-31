@@ -12,23 +12,23 @@ export default class Index extends Component{
                 <Header/>
                 <FlatList
                     data={
-                        [{key:'a'},{key:'b'},{key:'c'},{key:'d'},{key:'e'}
-                        ,{key:'f'},{key:'g'}]
+                        [{name:'Parkiran Jatinegara', locate:'Stasiun Jatinegara, Jakarta Kota', img:'http://image.csr.id/article/2013/10/01/a9f99dfc5ede498f7724ebf0408f1cb2/headline.jpg'}
+                        ,{name:'Parkiran Tanah Abang', locate:'Stasiun Tanah Abang, Jakarta Timur', img:'http://beritatrans.com/cms/wp-content/uploads/2017/09/Parkir-stasiun-bogor_8807-553x400.jpg'}]
                     }
                     renderItem={({item})=><View>
                         <Card style={{marginLeft: '3%', marginRight: '3%', borderColor: 'blue', borderEndWidth: 2, elevation: 0}}>
                             <CardItem>
                             <Left style={{width: '100%', height: '100%', flex: 2}}>
-                            <Image source={{uri: 'https://cdn-images-1.medium.com/max/1200/1*jh6bmapyE8nPWju7W_7qEw.png'}}
+                            <Image source={{uri: item.img}}
                                 style={{width: '100%', height: '100%'}}/>
                             </Left>
                             <Body style={{flex: 3.3}}>
                             <CardItem>
                             <View>
-                                <Text style={{flex: 2, marginTop: '1%', fontSize: 15, fontWeight: 'bold'}}>Stasiun</Text>
+                                <Text style={{flex: 2, marginTop: '1%', fontSize: 15, fontWeight: 'bold'}}>{item.name}</Text>
                                 <View style={{flex: 1, flexDirection: 'row', marginTop: '3%'}}>
                                     <Icon name='locate' type='Ionicons' style={{fontSize: 15}}/>
-                                    <Text style={{ fontSize: 12, marginLeft: -15, width: '95%'}}>Pasar Minggu, Jakarta Selatan</Text>
+                                    <Text style={{ fontSize: 12, marginLeft: -15, width: '95%'}}>{item.locate}</Text>
                                 </View>
                             </View>
                             </CardItem>
