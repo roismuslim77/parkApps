@@ -56,7 +56,6 @@ class Talks extends Component {
         renderScrollComponent={props => (
           <ParallaxScrollView
             onScroll={onScroll}
-
             headerBackgroundColor="blue"
             stickyHeaderHeight={ STICKY_HEADER_HEIGHT }
             parallaxHeaderHeight={ PARALLAX_HEADER_HEIGHT }
@@ -155,7 +154,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     flexDirection: 'column',
-    paddingTop: 100
+    paddingTop: 100,
   },
   avatar: {
     marginBottom: 10,
