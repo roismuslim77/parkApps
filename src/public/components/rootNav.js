@@ -48,7 +48,7 @@ const RootNavigator = createStackNavigator({
     Auth : { screen: authScreen},
     History: { screen: historyScreen}
 },{
-    initialRouteName: 'HomeRoot',
+    initialRouteName: 'Auth',
     headerMode: 'none'
 })
 

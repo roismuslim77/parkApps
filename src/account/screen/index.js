@@ -15,13 +15,13 @@ import ParallaxScrollView from 'react-native-parallax-scroll-view';
   
 const Row = (props) => (
   <View style={ styles.row }>
-    <Icon style={{marginLeft: '3%', fontSize: 22}} name={props.icon} type='FontAwesome'/>
+    <Icon style={{marginLeft: '3%', fontSize: 22, color: 'blue'}} name={props.icon} type='FontAwesome'/>
     <Text style={ styles.rowText }>
        { props.title }
     </Text>
   </View>
 )
-class Talks extends Component {
+class Account extends Component {
   constructor(props) {
     super(props);
     this.state =  {
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Talks;
+export default Account;
 
 //         <ParallaxScrollView
 //           backgroundColor="transparent"
